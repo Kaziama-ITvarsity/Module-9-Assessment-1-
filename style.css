@@ -1,0 +1,78 @@
+.container{
+  width: 600px;
+  margin: 40px auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:1px solid #FDC93B;
+  border-radius: 10px;
+}
+h3{
+  color: rgb(21, 21, 100);
+}
+#progressBarContainer{
+  transform: rotate(180deg);
+}
+.buttonSection{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 30px;
+}
+#clock{
+  margin: 20px;
+  font-family: 'Robonto' sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: #FDC93B;
+}
+.selector{
+  width: 8rem;
+  padding: 7px 10px;
+  margin-right: 1rem;
+  background-color: rgb(21, 21, 100);
+  color: white;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.selector:hover{
+  background-color: white;
+  color: rgb(21, 21, 100);
+  border: 1px solid rgb(21, 21, 100);
+}
+.roundButton{
+  width: 70px;
+  border-radius: 50%;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+#cancel{
+  color: rgb(21, 21, 100);
+  background-color: #FDC93B;
+  font-weight: 500;
+  font-size: 17px;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+#cancel:hover{
+  color: #FDC93B;
+  background-color: rgb(21, 21, 100);
+  font-weight: 500;
+  font-size: 18px;
+}
+#start{
+  color: white ;
+  background-color: rgb(21, 21, 100);
+  font-weight: 500;
+  font-size: 17px;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+#start:hover{
+  color: rgb(21, 21, 100);
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid rgb(21, 21, 100);
+}

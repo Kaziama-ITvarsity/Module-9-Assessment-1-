@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown Timer App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      #clock p {
+        font-size: 2em;
+        color: rgb(21, 21, 100);
+        margin-top: 20px;
+      }
+
+      svg {
+        transform: rotate(180deg);
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <svg id="progressBarContainer" width="144" height="300">
+        <defs>
+          <pattern id="pattern1" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="3" stroke="0" fill="rgb(21, 21, 100)" />
+          </pattern>
+        </defs>
+        <rect id="pressBar" x="0" y="0" width="144" height="300" style="fill: url(#pattern1)" />
+      </svg>
+
+      <div id="clock">
+        <p id="timer">Ready!</p>
+      </div>
+    </div>
+
+    <script>
+      let totalSeconds = 60; // Change this to the duration you want
+      const timerDisplay = document.getElementById("timer");
+      const pressBar = document.getElementById("pressBar");
+      const barHeight = 300;
+
+      function startCountdown(duration) {
+        let remaining = duration;
+        timerDisplay.textContent = formatTime(remaining);
+
+        const interval = setInterval(() => {
+          remaining--;
+          if (remaining < 0) {
+            clearInterval(interval);
+            timerDisplay.textContent = "Time's up!";
+            pressBar.setAttribute("height", "0");
+            return;
+          }
+          timerDisplay.textContent = formatTime(remaining);
+
+          const percentage = remaining / duration;
+          pressBar.setAttribute("height", barHeight * percentage);
+        }, 1000);
+      }
+
+      function formatTime(seconds) {
+        const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const secs = String(seconds % 60).padStart(2, '0');
+        return `${mins}:${secs}`;
+      }
+
+      // Start countdown on page load (or trigger from a button if you prefer)
+      window.onload = () => {
+        startCountdown(totalSeconds);
+      };
+    </script>
+
+  </body>
+</html>
